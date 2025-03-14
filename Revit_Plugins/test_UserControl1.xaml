@@ -1,0 +1,199 @@
+﻿<Window x:Name="Window_1" x:Class="Revit_Plugins.Test_UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Revit_Plugins"
+             mc:Ignorable="d" Height="868" Width="1022" Activated="Window_1_Activated">
+
+    <Grid Margin="10,10,10,7">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="248*"/>
+            <ColumnDefinition Width="531*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lstview1" Margin="11,10,1,96" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding nm}" Width="100"/>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding id}" Width="100"/>
+                </GridView>
+            </ListView.View>
+            <GridSplitter Height="100" Width="5"/>
+        </ListView>
+        <Button Content="Button" Margin="0,0,10,10" RenderTransformOrigin="0.488,0.569" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="142" Grid.Column="1" Click="Button_Click"/>
+        <DataGrid x:Name="dt_grdv_01" Margin="8,10,0,385" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Element" Binding="{Binding key}" Width="*"/>
+                <DataGridTemplateColumn Header="Wall Type" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding select_Type.Name}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding available_Types}"
+                             SelectedItem="{Binding select_Type, Mode=TwoWay}"
+                             DisplayMemberPath="Name" SelectionChanged="Combox_SelectionChanged" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridComboBoxColumn x:Name ="bind_opt" Header ="Opt" ItemsSource="{Binding available_Types}"   DisplayMemberPath="key" Width="100"/>
+                <DataGridTextColumn Header="Val" Binding="{Binding ValidatesOnDataErrors, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label x:Name="lbel1" Content="LabelA" Margin="605,658,26,60" FontFamily="Arial" Visibility="Visible" RenderTransformOrigin="8.684,0.654" Grid.Column="1"/>
+        <Viewport3D Name="vprt3d" Margin="10,0,215,26" Grid.Column="1" Height="346" VerticalAlignment="Bottom"
+                    MouseDown="vprt3d_mousedown"
+                    MouseUp="vprt3d_mouseup"
+                    MouseWheel="vprt3d_mousewheel"
+                    MouseMove="vprt3d_mousemove">
+            <!--Viewport3D.Camera>
+                <PerspectiveCamera Position="50,50,50" LookDirection="-50,-50,-50" UpDirection="0,0,1" FieldOfView="60"/>
+            </Viewport3D.Camera-->
+            <ModelVisual3D x:Name="nmod_vs_3d_2">
+                <ModelVisual3D.Children>
+                    <ModelVisual3D>
+                        <ModelVisual3D.Content>
+                            <DirectionalLight Color="White" Direction="-1,-1,-1"/>
+                        </ModelVisual3D.Content>
+
+                    </ModelVisual3D>
+                </ModelVisual3D.Children>
+
+            </ModelVisual3D>
+
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <GeometryModel3D>
+                        <GeometryModel3D.Geometry>
+                            <MeshGeometry3D 
+                                Positions="-10 -10 0  10 -10 0  -10 10 0  10 10 0"
+                                Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+                                TextureCoordinates="0 1  1 1  0 0  1 0   "
+                                TriangleIndices="0 1 2  1 3 2" />
+                        </GeometryModel3D.Geometry>
+
+                        <GeometryModel3D.Material>
+                            <DiffuseMaterial>
+                                <DiffuseMaterial.Brush>
+                                    <SolidColorBrush Color="Cyan" Opacity="0.3"/>
+                                </DiffuseMaterial.Brush>
+                            </DiffuseMaterial>
+                        </GeometryModel3D.Material>
+                        <!-- Translate the plane. -->
+                        <GeometryModel3D.Transform>
+                            <TranslateTransform3D
+                                OffsetX="2" OffsetY="2" OffsetZ="10"   >
+                            </TranslateTransform3D>
+                        </GeometryModel3D.Transform>
+                    </GeometryModel3D>
+
+                </ModelVisual3D.Content>
+
+            </ModelVisual3D>
+
+            <ModelVisual3D x:Name="nmod_vs_3d_1">
+                <ModelVisual3D.Children>
+                    <ModelVisual3D>
+                        <ModelVisual3D.Content>
+                            <GeometryModel3D>
+                                <GeometryModel3D.Geometry>
+                                    <MeshGeometry3D 
+                                        Positions="-10 -10 0  10 -10 0  -10 10 0  10 10 0"
+                                        Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+                                        TextureCoordinates="0 1  1 1  0 0  1 0   "
+                                        TriangleIndices="0 1 2  1 3 2" />
+                                </GeometryModel3D.Geometry>
+
+                                <GeometryModel3D.Material>
+                                    <DiffuseMaterial>
+                                        <DiffuseMaterial.Brush>
+                                            <SolidColorBrush Color="Cyan" Opacity="0.3"/>
+                                        </DiffuseMaterial.Brush>
+                                    </DiffuseMaterial>
+                                </GeometryModel3D.Material>
+                                <!-- Translate the plane. -->
+                                <GeometryModel3D.Transform>
+                                    <TranslateTransform3D
+                                        OffsetX="2" OffsetY="2" OffsetZ="5"   >
+                                    </TranslateTransform3D>
+                                </GeometryModel3D.Transform>
+                            </GeometryModel3D>
+
+                        </ModelVisual3D.Content>
+
+                    </ModelVisual3D>
+                </ModelVisual3D.Children>
+
+            </ModelVisual3D>
+
+
+            <ModelVisual3D x:Name="nmod_vs_3d">
+                <ModelVisual3D.Children>
+                    <ModelVisual3D>
+                        <ModelVisual3D.Content>
+                            <GeometryModel3D>
+                                <GeometryModel3D.Geometry>
+                                    <MeshGeometry3D 
+                                        Positions="-10 -10 0  10 -10 0  -10 10 0  10 10 0"
+                                        Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+                                        TextureCoordinates="0 1  1 1  0 0  1 0   "
+                                        TriangleIndices="0 1 2  1 3 2" />
+                                </GeometryModel3D.Geometry>
+
+                                <GeometryModel3D.Material>
+                                    <DiffuseMaterial>
+                                        <DiffuseMaterial.Brush>
+                                            <SolidColorBrush Color="Cyan" Opacity="0.3"/>
+                                        </DiffuseMaterial.Brush>
+                                    </DiffuseMaterial>
+                                </GeometryModel3D.Material>
+                                <!-- Translate the plane. -->
+                                <GeometryModel3D.Transform>
+                                    <TranslateTransform3D
+                                        OffsetX="1" OffsetY="1" OffsetZ="-1"   >
+                                    </TranslateTransform3D>
+                                </GeometryModel3D.Transform>
+                            </GeometryModel3D>
+
+                        </ModelVisual3D.Content>
+
+                    </ModelVisual3D>
+                </ModelVisual3D.Children>
+
+            </ModelVisual3D>
+
+        </Viewport3D>
+        <ComboBox x:Name="fillPatCombx" Margin="11,0,0,47" Height="26" VerticalAlignment="Bottom" SelectionChanged="fillPatCombx_SelectionChanged" 
+                  >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <!-- Placeholder rectangle for preview -->
+                        <Rectangle Width="150" Height="20" Margin="2"
+                          Stroke="Black" Fill="{Binding Converter={StaticResource FillPatternBrushConverter}}" />
+                        <TextBlock Text="{Binding nm}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+
+        </ComboBox>
+        <ComboBox 
+            x:Name="cmboxA"
+            DisplayMemberPath="nm"
+            SelectionChanged="cmboxA_SelectionChanged"
+            Margin="11,0,1,7" Height="25" VerticalAlignment="Bottom"/>
+
+    </Grid>
+
+
+
+
+</Window>
+    

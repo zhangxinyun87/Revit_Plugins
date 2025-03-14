@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  
+
+  "saved_name": "string",
+  "prm_vals_color_pair": {
+    "prm_fltr_elem_set": {
+      "prm_val_pair": {
+        "set_nm": "string",
+        "lst_prm_val_pair": {
+          "prm_val_pair": {
+            "prm_id": "int_elementid",
+            "prm_val": "int/string/float"
+
+          },
+          "prm_val_pair1": {
+            "prm_id": "int_elementid",
+            "prm_val": "int/string/float"
+
+          }
+
+        }
+
+      }
+
+    },
+    "Color": {
+      "R": "",
+      "G": "",
+      "B": ""
+    },
+
+  },
+  "FillPatternElement": "int_elementid"
+
+  }
+
+}
