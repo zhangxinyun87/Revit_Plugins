@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\Professionisti280\source\repos\Revit_Plugins\Revit_Plugins\bin\Debug\Revit_Plugins.dll</Assembly>
+    <ClientId>06776d0d-e723-42df-9a1d-8b604ff60f7c</ClientId>
+    <FullClassName>Revit_Plugins.Command_Form_template</FullClassName>
+    <Text>Command_Form_template</Text>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\Professionisti280\source\repos\Revit_Plugins\Revit_Plugins\bin\Debug\Revit_Plugins.dll</Assembly>
+    <ClientId>06a9721e-ccfe-47bf-80fe-0a65ade353cd</ClientId>
+    <FullClassName>Revit_Plugins.check_fam_param_Command</FullClassName>
+    <Text>check_fam_param_Command</Text>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\Professionisti280\source\repos\Revit_Plugins\Revit_Plugins\bin\Debug\Revit_Plugins.dll</Assembly>
+    <ClientId>14bdf55b-d016-46f7-9d87-443f0b777f8e</ClientId>
+    <FullClassName>Revit_Plugins.clash_visual_Command</FullClassName>
+    <Text>clash_visual_Command</Text>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\Professionisti280\source\repos\Revit_Plugins\Revit_Plugins\bin\Debug\Revit_Plugins.dll</Assembly>
+    <ClientId>c04d4f31-779e-45cd-9f0e-1c00f3aedc5a</ClientId>
+    <FullClassName>Revit_Plugins.refresh_views_Command</FullClassName>
+    <Text>refresh_views_Command</Text>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
